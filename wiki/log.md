@@ -36,3 +36,14 @@ updated: 2026-06-03
 - 创建概念页：[[wiki/concepts/全面覆盖原则]]、[[wiki/concepts/等同原则]]、[[wiki/concepts/FTO自由实施分析]]、[[wiki/concepts/专利权利要求对照表]]
 - 更新 CLAUDE.md：新增目录结构 + Review 工作流 + product-review 类型
 - 更新 wiki/index.md（索引增至 18 个页面）
+
+## [2026-06-03] review | 乳腺癌丝带胸针
+
+- 产品名称：乳腺癌丝带胸针（Breast Cancer Lapel Pin）
+- 目标市场：美国 | 平台：Amazon
+- 检索数据库：USPTO、WIPO、CNIPA、EUIPO
+- 发现相关专利：USD828218（Cancer pin，有效至2033年）、USD632993（已过期）
+- 关键发现：粉色丝带（pink ribbon）属于公共领域符号，不构成侵权
+- 综合风险评估：**低风险（可上架）**
+- 创建审查页：[[wiki/products/乳腺癌丝带胸针]]
+- 更新 wiki/index.md（索引增至 19 个页面）
