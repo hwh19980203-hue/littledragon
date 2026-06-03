@@ -21,7 +21,7 @@ updated: 2026-06-03
 
 ### 审查中
 
-- [[wiki/products/乳腺癌胸针-合金款|乳腺癌胸针（合金款/MOSOTECH）]] — ⏳ 审查中（需确认设计细节）
+- [[wiki/products/乳腺癌胸针-合金款|乳腺癌胸针（合金款/MOSOTECH）]] — ✅ 已通过（风险等级：低）
 
 ## 实体 (Entities)
 
