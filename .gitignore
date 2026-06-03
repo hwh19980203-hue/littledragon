@@ -1,0 +1,17 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace
+.obsidian/cache/
+
+# System
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Tool config
+.claude/
+.claudian/
+
+# Temp files
+~$*
+*.tmp

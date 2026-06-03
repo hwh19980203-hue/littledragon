@@ -1,0 +1,18 @@
+{
+  "realclaudian:new-tab": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "1"
+    }
+  ],
+  "realclaudian:open-view": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "2"
+    }
+  ]
+}
