@@ -26,3 +26,13 @@ updated: 2026-06-03
 - 创建综合分析：[[wiki/synthesis/知识产权查询策略对比]]
 - 更新 wiki/index.md（索引增至 11 个页面）
 - 补充调研来源：USPTO PPUBS、WIPO Global Design DB、智慧芽 PatSnap、CNIPA 检索系统、TRO 应对策略、美国版权局 CPRS
+
+## [2026-06-03] update | 升级为产品审查工作台
+
+- 新增目录：`wiki/products/`（待审产品）、`wiki/cases/`（已结案归档）
+- 新增目录：`wiki/dashboards/`（Dataview 看板）
+- 创建产品审查模板：[[wiki/products/_template]]
+- 创建审查看板：[[wiki/dashboards/审查看板]]
+- 创建概念页：[[wiki/concepts/全面覆盖原则]]、[[wiki/concepts/等同原则]]、[[wiki/concepts/FTO自由实施分析]]、[[wiki/concepts/专利权利要求对照表]]
+- 更新 CLAUDE.md：新增目录结构 + Review 工作流 + product-review 类型
+- 更新 wiki/index.md（索引增至 18 个页面）

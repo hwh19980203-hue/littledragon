@@ -6,7 +6,7 @@
 
 ```
 raw/                      # 原始资料（不可变，只读）
-  └── 用户放入原始文档，LLM 读取但不修改
+  └── assets/             # 附件图片（Obsidian 自动存入）
 wiki/                     # LLM 维护的知识库
   ├── index.md            # 内容索引（LLM 维护）
   ├── log.md              # 操作日志（LLM 追加）
@@ -14,7 +14,10 @@ wiki/                     # LLM 维护的知识库
   ├── entities/           # 实体页：专利、公司、产品、人物
   ├── concepts/           # 概念页：法律概念、技术概念
   ├── sources/            # 资料来源摘要
-  └── synthesis/          # 综合分析/对比/问答页
+  ├── synthesis/          # 综合分析/对比/问答页
+  ├── products/           # 产品审查记录（用户创建，LLM 辅助分析）
+  ├── cases/              # 已结案归档的产品审查
+  └── dashboards/         # Dataview 看板页面
 ```
 
 ## 页面模板
@@ -23,7 +26,7 @@ wiki/                     # LLM 维护的知识库
 
 ```yaml
 ---
-type: entity | concept | source | synthesis
+type: entity | concept | source | synthesis | product-review | dashboard
 title: 页面标题
 tags: [标签1, 标签2]
 created: YYYY-MM-DD
@@ -67,6 +70,19 @@ aliases: [别名1]
 3. 综合答案（可生成 Markdown 表格、列表等格式）
 4. 如果答案有长期价值，存入 `wiki/synthesis/` 并更新索引
 5. 追加 `wiki/log.md` 记录本次查询
+
+### Review（产品侵权审查）
+
+当用户提交一个待审产品时：
+
+1. 读取产品信息，确认产品类型、目标市场和关键特征
+2. 检索相关专利：使用智慧芽（以图搜图）、USPTO PPUBS、WIPO、CNIPA、EUIPO 等数据库
+3. 整理检索结果，识别相关专利列表
+4. 制作权利要求对照表（Claim Chart），逐项比对
+5. 结合全面覆盖原则和等同原则评估侵权风险
+6. 生成风险评估结论（cleared / risky / blocked）
+7. 更新产品审查页，写入检索记录和分析结论
+8. 更新 wiki/index.md 和 wiki/log.md
 
 ### Lint（健康检查）
 
