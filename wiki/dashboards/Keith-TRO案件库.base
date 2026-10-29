@@ -1,0 +1,73 @@
+filters:
+  and:
+    - file.inFolder("wiki/entities/litigation-cases")
+    - file.ext == "md"
+    - template != true
+formulas:
+  days_since_check: 'if(last_checked_at, (today() - date(last_checked_at)).days, "")'
+  stage_label: 'if(tro_stage == "granted", "🔴 TRO已批准", if(tro_stage == "active", "🔴 执行中", if(tro_stage == "motion-filed", "🟠 已申请", if(tro_stage == "complaint", "🟡 仅起诉", "⚪ 未确认"))))'
+  stale: 'if(last_checked_at, (today() - date(last_checked_at)).days > 7, true)'
+properties:
+  file.name:
+    displayName: 案件
+  case_id:
+    displayName: 案号
+  plaintiff:
+    displayName: 原告
+  law_firm:
+    displayName: 代理律所
+  formula.stage_label:
+    displayName: TRO阶段
+  evidence_status:
+    displayName: 证据等级
+  risk_level:
+    displayName: 风险
+  last_checked_at:
+    displayName: 最近核验
+  next_check_at:
+    displayName: 下次核验
+  formula.days_since_check:
+    displayName: 距核验天数
+views:
+  - type: table
+    name: 全部案件
+    order:
+      - file.name
+      - case_id
+      - plaintiff
+      - law_firm
+      - formula.stage_label
+      - evidence_status
+      - risk_level
+      - last_checked_at
+      - next_check_at
+    sort:
+      - property: last_checked_at
+        direction: DESC
+  - type: table
+    name: Keith已核验案件
+    filters:
+      and:
+        - law_firm == "Keith Vogt, Ltd."
+    order:
+      - file.name
+      - case_id
+      - formula.stage_label
+      - evidence_status
+      - last_checked_at
+  - type: table
+    name: 待核验与过期
+    filters:
+      or:
+        - evidence_status == "lead-only"
+        - evidence_status == "secondary"
+        - formula.stale == true
+        - tro_stage == "unknown"
+    order:
+      - file.name
+      - case_id
+      - law_firm
+      - formula.stage_label
+      - evidence_status
+      - formula.days_since_check
+

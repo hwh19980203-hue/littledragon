@@ -2,7 +2,7 @@
 type: log
 title: 操作日志
 created: 2026-06-03
-updated: 2026-06-04
+updated: 2026-10-28
 ---
 
 # 操作日志
@@ -358,13 +358,14 @@ updated: 2026-06-04
 - 审查页状态：`cleared`（风险等级：low）
 - 已更新 wiki/index.md
 
-## [2026-06-04] 🔴 correction | 钥匙挂钩（223）版权排查修正 — ✅ Go → ⚠️ 需修改设计
+## [2026-06-04] 🔴 correction | 钥匙挂钩（223）版权排查修正 — ✅ Go → ⚠️ 需修改设计（已于 2026-10-28 撤回）
 
 - **触发**：用户补充产品图片后确认"版权问题"
-- **错误根因**：检索时未覆盖 Artem Vorotnikov 2026 年 3 月提起的 Keith 律所版权案
+- **状态说明**：以下为当时记录，后来经官方起诉状复核证实权利号、作品、代理律所和 TRO 阶段均发生误配，不能作为现行结论。
+- **当时错误判断**：检索时未覆盖 Artem Vorotnikov 2026 年 3 月提起的所谓 Keith 律所版权案
 - **修正内容**：
-  - 发现美国版权登记 **VA 2-467-938**（"HOME SWEET HOME" 文字设计，Artem Vorotnikov，2025-09-17 登记）
-  - 发现 Keith 律所 **26-cv-00422**（2026-03-14 立案，400+ 卖家已 TRO）
+  - ~~发现美国版权登记 **VA 2-467-938**（"HOME SWEET HOME" 文字设计，Artem Vorotnikov，2025-09-17 登记）~~（错误）
+  - ~~发现 Keith 律所 **26-cv-00422**（2026-03-14 立案，400+ 卖家已 TRO）~~（错误）
   - 原结论 ❌ 从 Go 修正为 ⚠️ 需修改设计（风险等级：low → medium）
   - 产品文字设计是否与 Vorotnikov 版权原图实质性相似需人工比对确认
 - **教训**：① "HOME SWEET HOME" 作为短语虽不受版权保护，但特定的文字设计/美术作品可单独登记版权；② Keith 律所 2025-2026 年大批量登记新版权并批量起诉，检索时需覆盖最新案件；③ 不可因短语属公共领域就直接跳过版权排查
@@ -531,3 +532,118 @@ updated: 2026-06-04
   4. **wiki/index.md** — 新增「使用指南」分区
   5. **wiki/log.md** — 补录远程仓库的日志条目
 - **本地未覆盖**：53-硅胶地漏 的人工审核推翻状态（`blocked`）保持不变
+
+## [2026-07-20] query+schema | 审查框架缺口审计与视觉证据硬门禁
+
+- **触发**：用户要求按最新逻辑复盘现有审查方式，并指出本地 Obsidian 中的 Claude 无法看到图片。
+- **核心发现**：Obsidian 图片嵌入与 PIL 像素统计不能证明模型完成了视觉理解；历史流程存在证据不足仍给低风险/Go 的假阴性风险。
+- **新增**：[[wiki/synthesis/审查框架缺口审计与视觉证据方案]]。
+- **Schema 更新**：
+  - [[CLAUDE.md]] 新增视觉证据硬门禁、`visual_evidence_status`、图片哈希/逐图清单、证据账本、检索时效和交易链连接点。
+  - 扩大版权触发范围到雕塑/浮雕/首饰、包装、标签、说明书、Listing/A+素材、文案和字体。
+  - 商标层增加普通法/未注册商标、图形商标、发音/翻译近似和商业外观。
+  - TRO 改为区分 complaint、motion、granted、active、expired/vacated/dismissed；行业文章只作线索。
+  - 供应商“公模/卖家多”不再作为不侵权依据，新增权属与授权链核验。
+  - 美国进口场景增加 USITC Section 337 与 CBP 边境执法检查。
+- **模板更新**：[[wiki/products/_template]] 新增完整性门禁、视觉证据状态、供应商授权链和检索证据账本。
+- **工具校正**：USPTO TESS 已退役，相关 Wiki 页面统一改为 Trademark Search。
+- **历史数据**：本次未直接改写既有产品结论；建议优先回溯曾依赖 PIL/未签核目视判断而 cleared 的 820、824、818、847。
+
+## [2026-07-21] intake | 通过飞书收集 923 审查资料
+
+- **触发**：用户要求通过飞书收集产品 923 审查所需信息。
+- **已创建飞书 Base**：`923产品侵权审查资料收集`，数据表 `923资料提交`。
+- **已创建表单**：`923产品侵权审查资料提交表`，共 28 个字段（27 个审查问题 + 1 个 Base 主字段）。
+- **收集范围**：产品/Listing、目标市场与交易链连接点、SKU/功能结构、完整图片包、包装与 Listing 素材、供应商及授权链、上线日期和提交人。
+- **视觉门禁**：产品完整图片包为必填，要求正反面、左右侧、顶部、底部、结构特写、全部文字/Logo/图案和尺寸图；另设图片完整性确认。
+- **初始状态**：等待飞书表单提交；当时尚未创建 923 产品审查页，避免在产品名称和范围未知时预填错误信息。
+- **首份资料入库**：用户提供供应商产品图，已写入飞书 923 收集记录并上传至“产品完整图片包”。
+  - 暂定品类：充气式三面围护水上浮床/休闲躺垫。
+  - 可见特征：中央白色网面或薄膜床体，顶部与两侧为蓝白/荧光绿白条纹充气圆柱靠枕；单图未见文字、Logo 或角色。
+  - 视觉证据：仅单张正面合成图，缺背面、左右侧、顶部/底部、充气口、连接结构、包装及 Listing 素材；状态保持“图片仍不完整”。
+  - 图片 SHA-256：`4CE883717F0BB844362AE59CF6C9988367CF791CD8EC8A1B781C6F385E5941F7`。
+- **目标市场确认**：美国；后续核心检索限定为美国权利，版权及指定美国的国际申请按例外处理。
+- **新增资料入库**：现场包装图、CE 合格证书、成人款尺寸/颜色图，以及仅作竞品参考的 Amazon 五点描述。
+  - 923 本款可确认尺寸约 120 × 105 cm，蓝/粉/绿/黄白条纹；正面图显示三根圆柱充气支撑和中央网面/薄膜，未见杯架。
+  - 竞品的杯架、300 lb 承重、Premium Vinyl、6 个月质保及专利声明均未归属于 923 本款。
+  - 包装图 SHA-256：`0F74BB94E569FD35F4051399D7DC0E051CC97AA939CE89AAA5A9AE8CE6919368`。
+  - CE 证书图 SHA-256：`68055C70E6C888C1F48DD33C18CA5E5C389F88F406CFE83B6A31B6555FF26A6A`。
+  - 尺寸/颜色图 SHA-256：`1E2B3AB03F1390B5499250F4D5A449BA9A202F2C8C335991580011BA6F28D12F`。
+- **资料矛盾**：包装显示 `Yueqing Shihong Metal Processing Factory`，证书显示 `Jinhua Baiwei Plastic Products Co., Ltd.`；产品条纹外观与现场米色樱桃包装也未确认同一 SKU，已列为供应商核验事项。
+- **证书边界**：证书产品名/型号为 `Inflatable Water Hammock Floating Row` / `BWF-P001`，采用 EN 71 标准且注明仅对送检样品负责，不能证明美国 IP 授权或量产一致性。
+- **专利线索**：竞品声明 `USD1023208S`；初查对应 `USD1023208S1`（Floating chair），Google Patents 显示 2024-04-16 授权且状态 Active，仍须 USPTO 官方状态、7 幅附图和 TRO/诉讼核查。
+- **本地建档**：创建 [[wiki/products/923-充气水上吊床浮排]]，状态保持 `in-review` / `unknown`，未提前给出 Go。
+- **飞书附件说明**：因上传接口超时后重试，包装图和证书图在附件字段各出现一份重复；未在无授权情况下删除，待确认后清理。
+
+## [2026-07-21] review | 923 充气水上吊床浮排美国站初审完成
+
+- **最终决策**：⚠️ **需修改设计**；frontmatter 更新为 `status: risky` / `risk_level: medium`，结论有效至 2026-08-20。
+- **设计专利**：逐图比对 `USD1023208S1` 及 15 件同类美国设计专利。923 的“三根视觉分离直圆柱 + 大面积素白网面 + 前端开放”与 `USD1023208S1` 的连续宽厚 U 形主体、桨形扶手、独立椭圆头枕和中央座面形成不同整体视觉印象，纯外观风险为低。
+- **诉讼/TRO 信号**：确认 `Shenzhen Hongcheng Youpin Co., Ltd. v. Schedule A`，S.D. Fla. `1:2026-cv-24612` 于 2026-07-06 立案并主张 `D1023208`；2026-07-07 法院准许密封 Schedule A、支持材料和 Ex Parte TRO Motion。公开案卷仅能确认 TRO 动议已提交，未确认 TRO 获批，故标记为“⚠️ TRO motion filed / grant unconfirmed”，但按执行增强规则将实操风险上调为中。
+- **发明专利**：制作 `US10011330B2`、`US12110081B1`、`US10029767B2`、`US11638475B2` Claim Chart。前两件聚焦浮筒片材、连续焊缝和网布夹焊结构；现有正面图不能显示这些要素。圆形端片外观倾向于不同构造，但必须由展开片、焊缝路径和截面图确认。后两件因封闭多边形/渐缩或泳池永久锚点等必要要素缺失，判断为低风险。
+- **商标/版权**：产品本体简单双色条纹风险低；`ARM CIRCLE`、樱桃包装、标签版式和竞品文案均无授权证明，不得沿用。最终品牌仍需美国商标清查。
+- **供应商验证**：包装主体与 CE 证书主体不一致，条纹款与现场米色樱桃包装的 SKU 对应关系未证实；EN 71 证书不证明美国 IP 授权或量产一致性。
+- **放行硬条件**：维持与 `D1023208` 的外观差异；完成两件焊接结构专利规避；使用自有品牌/原创包装；补六面图、阀门和焊缝特写；取得供应商权属与赔偿保证；临上架复核案件是否出现 TRO 批准或公开 Schedule A。
+- **更新页面**：[[wiki/products/923-充气水上吊床浮排]]、[[wiki/index]]。
+
+## [2026-07-29] query+synthesis | Keith 与 TRO 风险情报库建设建议
+
+- **触发**：用户希望建设一个库，用于审查 Keith 律所相关及其他潜在侵权风险。
+- **核心建议**：不做“律所黑名单”，改做“权利—案件—执行状态—产品特征—证据”关联库；Keith 仅作为执行强度信号，不能替代侵权判断。
+- **数据模型**：建议建立 `rights`、`cases`、`work-fingerprints`、`parties`、`product-reviews` 和 `evidence` 六类记录。
+- **关键门禁**：区分 complaint / motion-filed / granted / active / expired / vacated / dismissed；证据不全或数据库不可访问时保持 `in-review` / `unknown`。
+- **MVP**：先将 189、223 两个已有案例拆成权利和案件记录，再建立 Keith/TRO Dataview 预警看板。
+- **新增页面**：[[wiki/synthesis/Keith与TRO风险情报库建设方案]]。
+- **更新页面**：[[wiki/index]]、[[wiki/log]]。
+
+## [2026-10-28] schema+correction | Keith / TRO 案件库 MVP 与 223 证据纠错
+
+- **触发**：用户要求丰富 Keith 律所情报库，以降低批量 TRO 的漏判风险。
+- **新增实体结构**：
+  - [[wiki/entities/law-firms/Keith-Vogt-Ltd]]：律所身份、核验边界和已核验案件。
+  - [[wiki/entities/litigation-cases/_template]]：强制记录律师、权利号、TRO 阶段、证据等级和复核日期。
+  - [[wiki/entities/ip-rights/_template]]：记录作品/专利指纹、权利状态和关联案件。
+- **新增已核验记录**：
+  - [[wiki/entities/litigation-cases/1-2024-cv-11378-Anagram]]：Keith A. Vogt 代理；2024-11-15 TRO 获批，2024-12-19 初步禁令获批。
+  - [[wiki/entities/litigation-cases/2-2026-cv-00422-Vorotnikov]]：代理为 Stanley D. Ference III / Ference & Associates；当前公开证据只确认 complaint。
+  - [[wiki/entities/ip-rights/VA-2-467-938]]：作品为 “Blue sea jelly on white background”，不是 HOME SWEET HOME。
+- **重大纠错**：[[wiki/products/223-钥匙挂钩]] 原先把 VA 2-467-938、HOME SWEET HOME、Keith、TRO 和 400+ 卖家合并为同一事实链；现已撤回，状态改为 `in-review / unknown`。
+- **看板**：新增 [[wiki/dashboards/Keith-TRO情报看板]] 与 `Keith-TRO案件库.base`，提供全部案件、Keith 已核验案件、待核验/过期三个视图。
+- **证据规则**：二手预警和商业追踪网站只作线索；律师身份看签名页/appearance，TRO 获批必须有法院命令或官方 docket。
+
+## [2026-10-28] schema+ingest | 多律所 TRO 情报库首批建设
+
+- **触发**：用户希望建立有 TRO 历史的律所库，使类似产品审查能自动提高警惕。
+- **新增看板**：[[wiki/dashboards/TRO律所情报库]] 与 `TRO律所库.base`，提供全部律所、高优先级、版权 TRO、商标 TRO、待复核五个视图。
+- **新增规则**：[[wiki/concepts/TRO律所情报使用规则]]，规定“律所命中只触发增强检索，不能单独证明侵权”。
+- **首批已核验律所**：
+  - [[wiki/entities/law-firms/Keith-Vogt-Ltd]]：已核验最低 2 宗 TRO 获批案件。
+  - [[wiki/entities/law-firms/Greer-Burns-Crain]]：已核验最低 2 宗商标 TRO 获批案件。
+  - [[wiki/entities/law-firms/HSPRD]]：已核验最低 1 宗版权 TRO 获批案件。
+  - [[wiki/entities/law-firms/JiangIP-LLC]]：已核验最低 1 宗版权 TRO 获批案件，并与 Keith 相关律师共同出现。
+- **新增法院案件页**：Turner `1:2023-cv-00486`、NBCUniversal `1:2026-cv-02355`、Art Ask Agency `1:2023-cv-04926`、Bonsall `1:2026-cv-04084`。
+- **数量口径**：仅记录“本库已打开法院 docket 并确认 TRO 命令的最低案件数”，不声称是律所完整案件总量。
+- **更新**：[[wiki/index]]、[[wiki/entities/litigation-cases/_template]]、[[wiki/dashboards/Keith-TRO情报看板]]。
+
+## [2026-10-28] ingest+correction | TRO 律所库第二批与 189 蜜蜂案官方复核
+
+- **新增已核验律所**：
+  - [[wiki/entities/law-firms/TME-Law-PC]]：Warner Bros. `1:2025-cv-14731`，2026-01-10 TRO、2026-02-05 初步禁令。
+  - [[wiki/entities/law-firms/Sriplaw-PA]]：C.H. / Your True Nature `1:2024-cv-11162`，2024-11-26 TRO、2024-12-23 初步禁令。
+  - [[wiki/entities/law-firms/Ference-Associates-LLC]]：Nixon 与 Winget 两宗已核验 TRO 案。
+- **189 重大纠错**：
+  - [[wiki/entities/litigation-cases/2-2026-cv-01187-Nixon]] 官方 docket 显示 2026-07-30 签署 TRO、7月31日进入 docket。
+  - 公开 docket 的原告方提交律师为 Stanley D. Ference III / Ference & Associates LLC；此前页面写成 Keith 不准确。
+  - [[wiki/products/189-蜜蜂气球]] 继续保持 `blocked / high`，依据是用户确认实际冻结以及法院 TRO 命令；同时明确 TRO 不等于最终侵权判决。
+- **新增权利页**：[[wiki/entities/ip-rights/VA-2-429-529]]，记录 Honey Bee 权利、案件和官方查册待办。
+- **阶段纠错示例**：[[wiki/entities/litigation-cases/2-2026-cv-00269-Winget]] 的 TRO 后续到期，库中记为 `expired`，不写成当前仍在执行。
+- **更新**：[[wiki/dashboards/TRO律所情报库]]、[[wiki/dashboards/Keith-TRO情报看板]]、[[wiki/synthesis/版权排查经验教训-Keith蜜蜂案]]、[[wiki/index]]。
+
+## [2026-10-28] ingest | TRO 律所库第三批：Whitewood 与 Epstein Drangel
+
+- **新增已核验律所**：
+  - [[wiki/entities/law-firms/Whitewood-Law-PLLC]]：Yanushevskaya `1:2025-cv-09053`，2025-08-19 TRO、2025-11-24 初步禁令及最终缺席判决。
+  - [[wiki/entities/law-firms/Epstein-Drangel-LLP]]：Rovio / Angry Birds `1:2022-cv-04139`；初步禁令明确延续先前 TRO，并包含商户账户及金融资产限制，2024-11-21 进入永久禁令。
+- **新增案件页**：[[wiki/entities/litigation-cases/1-2025-cv-09053-Yanushevskaya]]、[[wiki/entities/litigation-cases/1-2022-cv-04139-Rovio]]。
+- **证据边界**：Rovio 公开摘要未给出 TRO 精确签署日，保留为空；两案的缺席程序不替代产品与具体权利的实体比对。
+- **更新**：[[wiki/dashboards/TRO律所情报库]]、[[wiki/index]]。

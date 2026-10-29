@@ -3,7 +3,7 @@ type: concept
 title: TRO 临时禁令
 tags: [TRO, 临时禁令, 跨境电商, 专利侵权, 诉讼]
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-07-20
 aliases: [Temporary Restraining Order, 临时限制令]
 ---
 
@@ -29,7 +29,7 @@ TRO（Temporary Restraining Order，临时限制令）是美国法院在紧急�
 - 外观专利格式如 `US D1016678S`，输入 `D1016678` 即可查询
 
 ### 商标查询
-- **USPTO TESS**：https://tmsearch.uspto.gov
+- **USPTO Trademark Search**：https://tmsearch.uspto.gov（TESS 已退役）
 - **TSDR**：https://tsdr.uspto.gov（查看详细状态）
 
 ### TRO 案件跟踪平台

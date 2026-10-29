@@ -1,0 +1,95 @@
+filters:
+  and:
+    - file.inFolder("wiki/entities/law-firms")
+    - file.ext == "md"
+    - template != true
+formulas:
+  verified_orders_min: 'verified_tro_cases_min + verified_pi_cases_min'
+  days_since_check: 'if(last_checked_at, (today() - date(last_checked_at)).days, "")'
+  stale: 'if(last_checked_at, (today() - date(last_checked_at)).days > 30, true)'
+  watch_label: 'if(monitor_priority == "high", "🔴 高", if(monitor_priority == "medium", "🟡 中", "⚪ 未定"))'
+properties:
+  file.name:
+    displayName: 律所
+  formula.watch_label:
+    displayName: 监控优先级
+  verified_tro_cases_min:
+    displayName: 已核验TRO案件最低数
+  verified_pi_cases_min:
+    displayName: 已核验初禁案件最低数
+  right_types_seen:
+    displayName: 已见权利类型
+  known_clients:
+    displayName: 已核验客户
+  evidence_status:
+    displayName: 证据等级
+  last_verified_case_at:
+    displayName: 最近案件日期
+  last_checked_at:
+    displayName: 最近核验
+  next_check_at:
+    displayName: 下次核验
+  formula.days_since_check:
+    displayName: 距核验天数
+views:
+  - type: table
+    name: 全部律所
+    order:
+      - file.name
+      - formula.watch_label
+      - verified_tro_cases_min
+      - verified_pi_cases_min
+      - right_types_seen
+      - known_clients
+      - evidence_status
+      - last_verified_case_at
+      - next_check_at
+    sort:
+      - property: verified_tro_cases_min
+        direction: DESC
+  - type: table
+    name: 高优先级
+    filters:
+      and:
+        - monitor_priority == "high"
+        - verified_tro_cases_min > 0
+    order:
+      - file.name
+      - verified_tro_cases_min
+      - verified_pi_cases_min
+      - right_types_seen
+      - known_clients
+      - last_verified_case_at
+  - type: table
+    name: 版权TRO律所
+    filters:
+      and:
+        - right_types_seen.contains("copyright")
+    order:
+      - file.name
+      - verified_tro_cases_min
+      - known_clients
+      - last_checked_at
+  - type: table
+    name: 商标TRO律所
+    filters:
+      and:
+        - right_types_seen.contains("trademark")
+    order:
+      - file.name
+      - verified_tro_cases_min
+      - known_clients
+      - last_checked_at
+  - type: table
+    name: 待复核
+    filters:
+      or:
+        - evidence_status == "lead-only"
+        - evidence_status == "secondary"
+        - formula.stale == true
+    order:
+      - file.name
+      - evidence_status
+      - last_checked_at
+      - formula.days_since_check
+

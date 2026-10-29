@@ -3,7 +3,7 @@ type: entity
 title: 美国专利商标局（USPTO）
 tags: [USPTO, 美国, 专利, 商标, 官方数据库]
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-07-20
 aliases: [US Patent and Trademark Office, 美国专利局]
 ---
 
@@ -32,9 +32,10 @@ aliases: [US Patent and Trademark Office, 美国专利局]
 
 ## 商标检索系统
 
-### TESS（商标电子检索系统）
+### Trademark Search（TESS 已退役）
 - **网址**：https://tmsearch.uspto.gov
-- 支持文字商标、图形商标、权利人检索
+- 支持文字商标、图形商标、Design Code、权利人和高级字段检索
+- TESS 已于 2023-11-30 退役，不应再作为现行系统名称
 
 ### TSDR（商标状态与文件查询）
 - **网址**：https://tsdr.uspto.gov
