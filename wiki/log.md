@@ -2,7 +2,7 @@
 type: log
 title: 操作日志
 created: 2026-06-03
-updated: 2026-10-28
+updated: 2026-11-01
 ---
 
 # 操作日志
@@ -647,3 +647,78 @@ updated: 2026-10-28
 - **新增案件页**：[[wiki/entities/litigation-cases/1-2025-cv-09053-Yanushevskaya]]、[[wiki/entities/litigation-cases/1-2022-cv-04139-Rovio]]。
 - **证据边界**：Rovio 公开摘要未给出 TRO 精确签署日，保留为空；两案的缺席程序不替代产品与具体权利的实体比对。
 - **更新**：[[wiki/dashboards/TRO律所情报库]]、[[wiki/index]]。
+
+## [2026-10-29] query+correction | 产品审查页目录核对
+
+- **触发**：用户询问库内有哪些产品。
+- **范围**：读取 [[wiki/index]] 与 `wiki/products/`；排除 `_template.md` 后共有 14 个产品审查页。
+- **一致性发现**：[[wiki/products/818-乳腺癌手链]] 的正文和历史记录写 Go，但 frontmatter 为 `status: in-review`、`risk_level: unknown`。已将索引改成“状态待核”，未改动产品页或替用户作放行判断。
+- **区分**：`wiki/entities/litigation-cases/` 收录的是外部诉讼案例，不计入本公司产品审查页。
+
+## [2026-10-29] query | TRO 律所库涉案产品与作品覆盖范围
+
+- **触发**：用户澄清询问 TRO 律所情报库中的“产品”。
+- **核对范围**：[[wiki/dashboards/TRO律所情报库]]、`wiki/entities/litigation-cases/` 与 `wiki/entities/ip-rights/`；现有 9 个律所页、12 个非模板案件页、2 个非模板权利页。
+- **明确的作品/品牌主题**：Nixon `Honey Bee` 版权作品与 [[wiki/products/189-蜜蜂气球]] 有实际冻结关联；Rovio 案涉及 `Angry Birds Marks`；Vorotnikov 起诉状列五项视觉作品（含白底蓝色水母），但本库尚未核实该案 TRO 获批。
+- **边界**：Anagram、Turner、NBCUniversal、Warner Bros. 等可以给出原告/品牌或大致品类，但多数案件尚未拆出完整版权号、商标注册号、作品图、被告具体商品链接及 Schedule A 清单。律所历史不是商品级侵权结论。
+
+## [2026-10-29] ingest | 补录 TRO 案件涉案作品与商品线索
+
+- **触发**：用户要求将 TRO 律所涉及的产品补入库。
+- **新增目录**：[[wiki/synthesis/TRO案件涉案作品与商品线索目录]]，逐案覆盖现有 12 宗非模板案件，记录可核实的作品/品牌对象、商品证据缺口与准确程序阶段；不是全网所有律所案件或所有被告 SKU 的完整清单。
+- **入口**：已从 [[wiki/dashboards/TRO律所情报库]] 与 [[wiki/index]] 链接该目录。
+- **新增权利线索**：根据 Bonsall 起诉状存档，为 [[wiki/entities/litigation-cases/1-2026-cv-04084-Bonsall]] 补入四个被主张版权号 `VA 2-476-116`、`VA 2-476-115`、`VA 2-476-117`、`VA 2-476-114`。尚无逐项标题和画面对应，未作视觉匹配。
+- **纠错门禁**：Vorotnikov 继续单列为“仅确认起诉状，TRO 未核验”；Yanushevskaya 起诉状中的“其他作品”不冒充本案所主张作品；Nixon Honey Bee 保留 189 用户实际冻结关联，但不外推到所有蜜蜂气球。
+- **待补**：各案 Complaint Exhibit、作品图、Schedule A 与被告商品图/URL；取得后才建立商品级匹配。
+
+## [2026-10-29] ingest | 网上公开原始文书补强五宗案件的商品预警词
+
+- **触发**：用户要求网上搜寻相关被告商品信息并入本地库。
+- **新增来源摘要**：[[wiki/sources/2026-10-29-五案公开诉状与被告商品线索]]；保存五宗案件的起诉状/法院命令链接、能核实的权利对象、被告商品指控与缺证边界。
+- **Anagram**：[[wiki/entities/litigation-cases/1-2024-cv-11378-Anagram]] 录入起诉状 Doc.1 列明的 18 个 VA 版权号；作品图和具体被告商品仍缺。
+- **精确主题**：[[wiki/entities/litigation-cases/1-2026-cv-02355-NBCUniversal]] 核为 *The Office*（DUNDER MIFFLIN、DUNDIE、SCHRUTE FARMS）；[[wiki/entities/litigation-cases/1-2025-cv-14731-Warner-Bros]] 核为 *Harry Potter* 商标及版权并行，不扩写为华纳所有 IP。
+- **另两案**：[[wiki/entities/litigation-cases/1-2023-cv-00486-Turner]] 补 `TINA TURNER` / US 2,450,651；[[wiki/entities/litigation-cases/1-2022-cv-04139-Rovio]] 补命令中的 ANGRY BIRDS 等具体标识及部分登记号。
+- **证据门禁**：本次找到的原始文书主要证明权利主题与原告的商品**指控**，尚未取得被告 listing/ASIN、商品图或一对一权利映射。原告授权商品类别不冒充被告商品；未新增商品级“已侵权”记录。
+- **同步**：更新 [[wiki/synthesis/TRO案件涉案作品与商品线索目录]] 与 [[wiki/index]]；未触碰 `raw/`。
+
+## [2026-10-29] query | TRO 样本覆盖率澄清
+
+- **触发**：用户质疑现有样本过少，询问是否大量案件找不到。
+- **核对**：本库目前仅 12 宗非模板案件；第三方 [TRO101 Keith 律所列表](https://tro101.com/lawfirms/keith) 单页可见 20 条且有下一页，足以说明当前库远未覆盖公开案件池。第三方列表只是发现线索，尚未逐案回查法院 docket，不能据此声称 Keith 全部案件数或全部已获 TRO。
+- **分层缺口**：案件/原告/律所通常比被告商品图更容易公开获取；具体商品证据可能在 Exhibit、Schedule A 或密封材料中。美国法院 [PACER 说明](https://pacer.uscourts.gov/help/faqs/what-pacer)指出密封文书不向公众开放。
+- **纠偏**：上轮实际只对已有案件中的五宗补原始文书，不代表系统性穷尽检索。后续应先扩大案件索引，再逐案补权利及商品证据，并分别统计覆盖率。
+
+## [2026-10-29] ingest | 扩展 Keith 近期案件与纠正第三方律所误配
+
+- **触发**：用户要求尽可能继续网上搜索，扩充 TRO 律所和涉案商品预警库。
+- **新增**：[[wiki/sources/2026-10-29-Keith十月新案与误配核验]]；8 宗公开 docket 核实 Keith A. Vogt 出庭的 2026 年 10 月版权 Schedule A 案，各建案件页；本库非模板案件页从 12 增为 20。
+- **作品线索**：Avanti `1:26-cv-12214` 二级文书解读给出 `VA 1-748-967` / *Cat Reading Newspaper* 和两种被控设计文字组合；因 ECF PDF 和商品图未直接读取，权利号暂不写入 `asserted_rights`，只作待核预警。
+- **纠错**：TRO101 的 Keith 索引混入至少 4 宗公开 docket 显示 `Ference, Stanley` 的宾州案；不计入 Keith 样本。对方已提交 TRO 动议也不等于 TRO 获批。
+- **同步**：更新 [[wiki/entities/law-firms/Keith-Vogt-Ltd]]、[[wiki/synthesis/TRO案件涉案作品与商品线索目录]] 和 [[wiki/index]]；`raw/` 未修改；没有把原告名称冒充被告商品，也未改变产品放行结论。
+
+## [2026-11-01] ingest | Avanti 被控商品载体线索与阶段纠偏
+
+- **触发**：用户要求继续检索并丰富 TRO 相关商品库。
+- **新增商品线索**：[[wiki/entities/litigation-cases/1-2026-cv-12214-Avanti-Press]] 的法院附件 Doc.13-1 在第三方 OCR 索引出现 Amazon 猫读报主题金属墙面装饰牌 listing；记录为“被指控商品载体”，未取得可靠 ASIN/店铺/图像，`visual_evidence_status: missing`，不认定侵权。
+- **阶段纠偏**：公开 docket 仅显示泛称 `Exparte motion`，不能推定为 TRO 动议；将该案 `tro_stage` 从 `motion-filed` 改为 `unknown`。当前可用 Justia 快照止于 2026-10-06，需复核后续案卷。
+- **同步**：更新 [[wiki/sources/2026-10-29-Keith十月新案与误配核验]] 与 [[wiki/synthesis/TRO案件涉案作品与商品线索目录]]；未改 `raw/` 或产品放行状态。
+
+## [2026-11-01] ingest | Anagram 官方目录与用户图片产品线索
+
+- **触发**：用户提供 Anagram 官方 Catalogs 网站，作为 Keith/Anagram 案的公司产品信息来源。
+- **核对**：[官网目录入口](https://anagramballoons.com/catalogs/)列出 2027 情人节等目录；官方 2027 情人节目录可检索 `HVD Coquette Bows` 系列和 Standard `49769-01,02`。用户先前图片下半部另标 XL `49770-01,02`，官网可读取网页文本尚未独立核实 XL 货号。
+- **新增**：[[wiki/sources/2026-11-01-Anagram官网产品目录与情人节气球线索]]，并回链 [[wiki/entities/litigation-cases/1-2024-cv-11378-Anagram]] 与 [[wiki/synthesis/TRO案件涉案作品与商品线索目录]]；更新 [[wiki/index]]。
+- **边界**：官网现售产品与 2024 年起诉状的 18 个 VA 版权号无一对一映射，不能标成该案被控商品或已经侵权；用户图片上半部产品未完成独立身份/视觉核验。
+
+## [2026-11-01] synthesis | 建立 TRO 情报库月度复核口径
+
+- **触发**：用户要求继续丰富本库，并建立每月检查更新机制。
+- **新增规则页**：[[wiki/synthesis/TRO情报库月度复核机制]]，定义 L0-L4 证据等级、法院/登记/商品图三层核验、程序状态、资料留痕和通知门槛。
+- **官方目录扩展**：[[wiki/sources/2026-11-01-Anagram官网产品目录与情人节气球线索]] 增加 Anagram 情人节目录中的邻近系列检索词；这些仍只是官网产品线索，不能算涉诉商品。
+- **同步**：更新 [[wiki/index]]；未触碰 `raw/`，不自动改变产品审查结论或推送 GitHub。
+
+## [2026-11-01] automation | 启用 TRO 情报库月检
+
+- **任务**：Codex 本聊天 heartbeat `tro`（黑伞TRO情报库月度核验与更新），状态 `ACTIVE`；每月 1 日 09:00，时区 America/Tijuana。
+- **执行口径**：按 [[wiki/synthesis/TRO情报库月度复核机制]] 搜索并核验增量后更新本地 `wiki/`、索引和日志；无实质变化不制造新条目，仅重要变化/失败/需用户补证时通知。
+- **边界**：不自动修改 `raw/`、产品 Go/No-Go，不自动推送 GitHub 或对外发送消息。

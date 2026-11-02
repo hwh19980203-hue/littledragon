@@ -3,7 +3,7 @@ type: dashboard
 title: TRO 律所情报库
 tags: [TRO, law-firm, Schedule-A, dashboard, litigation-intelligence]
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-10-29
 sources: ["[[wiki/concepts/TRO律所情报使用规则]]"]
 aliases: [TRO律所库, Schedule A律所库, 侵权律所预警库]
 ---
@@ -12,6 +12,8 @@ aliases: [TRO律所库, Schedule A律所库, 侵权律所预警库]
 
 > [!danger] 使用边界
 > 本库是“执行能力预警库”，不是侵权黑名单。律所有历史 TRO 只能触发更严格检索，不能单独把产品判为 No-Go。
+
+**涉案作品与商品线索**：[[wiki/synthesis/TRO案件涉案作品与商品线索目录]]（覆盖本库现有 20 宗案件，逐案标明 TRO 阶段和未取得的商品附件）。
 
 ## 全部律所
 
@@ -62,6 +64,7 @@ aliases: [TRO律所库, Schedule A律所库, 侵权律所预警库]
 
 ## 关联页面
 
+- [[wiki/synthesis/TRO案件涉案作品与商品线索目录]] — 作品、品牌及被指控商品证据缺口
 - [[wiki/dashboards/Keith-TRO情报看板]] — 案件级看板
 - [[wiki/concepts/TRO律所情报使用规则]] — 产品审查中的联动规则
 - [[wiki/entities/law-firms/_template]] — 新律所录入模板

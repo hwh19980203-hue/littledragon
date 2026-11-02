@@ -2,13 +2,12 @@
 type: index
 title: 知识库索引
 created: 2026-06-03
-updated: 2026-10-28
+updated: 2026-11-01
 ---
 
 # 黑伞专利侵权审核知识库索引
 
-> 最后更新：2026-10-28（将 Keith 单点库扩展为多律所 TRO 情报库）
-> 总计：73 个 Markdown 页面（含模板与索引页）
+> 最后更新：2026-11-01（Anagram 产品线索与 TRO 情报月检机制）
 
 ## 🎯 工作区
 
@@ -30,7 +29,7 @@ updated: 2026-10-28
 - [[117-旅行尿壶|旅行尿壶（Leetye Mei Travel Urinal）]] — ❌ **No-Go（已被 TRO）** *USD836773S 🔴TRO 用户确认产品已被 TRO，与 OZ Urinal 外观类似*
 - [[824-乳腺癌丝带胸针|乳腺癌丝带胸针（涤纶款）]] — ✅ 已通过（风险等级：低）*（已二次审核）*
 - [[820-乳腺癌胸针-合金款|乳腺癌胸针（合金款/MOSOTECH）]] — ✅ 已通过（风险等级：低）*（已二次审核）*
-- [[818-乳腺癌手链|乳腺癌手链（编织款）]] — ✅ 已通过（风险等级：低）
+- [[818-乳腺癌手链|乳腺癌手链（编织款）]] — ⏳ **状态待核** *正文及历史记录写 Go，但 frontmatter 仍为 `in-review / unknown`；未核对前不作为已放行产品*
 - [[288-鞋子清洗袋|鞋子清洗袋（Deluvo）]] — ⚠️ **需修改设计**（风险等级：中）*发明专利 TRO 风险待评估*
 - [[189-蜜蜂气球|蜜蜂气球（24pcs铝箔气球）]] — ❌ **No-Go（已中 TRO）** *Nixon Honey Bee 版权案；`2:2026-cv-01187` TRO 已核验，公开 docket 显示 Ference & Associates*
 - [[212-磁吸车底钥匙盒|磁吸车底钥匙盒（CANIPHA）]] — ⚠️ **需修改设计**（风险等级：中）*USD1020230S 🔴TRO 设计专利 — 专利权人已诉50+卖家*
@@ -70,6 +69,10 @@ updated: 2026-10-28
 - [[wiki/entities/litigation-cases/1-2022-cv-04139-Rovio|Rovio / Angry Birds — 1:2022-cv-04139]] — Epstein Drangel 代理；商标 TRO、资产限制及永久禁令
 - [[wiki/entities/ip-rights/VA-2-429-529|VA 2-429-529 — Honey Bee]] — Nixon 蜜蜂作品权利与执行记录
 - [[wiki/entities/litigation-cases/2-2026-cv-00422-Vorotnikov|Vorotnikov v. Schedule A — 2:2026-cv-00422]] — Ference 代理；当前仅确认起诉状
+
+- [[wiki/entities/litigation-cases/1-2026-cv-12214-Avanti-Press|Avanti Press 1:26-cv-12214]] — Keith 出庭；猫读报作品线索待原件复核，TRO 未核验
+- [[wiki/entities/litigation-cases/1-2026-cv-12262-Avanti-Press|Avanti Press 1:26-cv-12262]]、[[wiki/entities/litigation-cases/1-2026-cv-12472-Avanti-Press|12472]]、[[wiki/entities/litigation-cases/1-2026-cv-12646-Avanti-Press|12646]] — Keith 出庭；具体作品和 TRO 待核
+- [[wiki/entities/litigation-cases/1-2026-cv-12331-Consani|Chris Consani 12331]]、[[wiki/entities/litigation-cases/1-2026-cv-12338-Domain-of-Science|Domain of Science 12338]]、[[wiki/entities/litigation-cases/1-2026-cv-12368-Billy-Jacobs|Billy Jacobs 12368]]、[[wiki/entities/litigation-cases/1-2026-cv-12849-Vigil|Kevin Vigil 12849]] — Keith 出庭；作品附件和 TRO 待核
 - [[wiki/entities/ip-rights/VA-2-467-938|VA 2-467-938 — 白底蓝色水母]] — 纠正错误的 HOME SWEET HOME 映射
 - [[wiki/entities/litigation-cases/_template|诉讼案件模板]] / [[wiki/entities/ip-rights/_template|知识产权权利模板]]
 
@@ -89,6 +92,9 @@ updated: 2026-10-28
 
 - [[wiki/sources/2026-06-03-专利版权商标查询|专利·版权·商标查询速查指南]] — 实操经验总结的查询速查
 - [[wiki/sources/2026-06-03-专利与侵权风险排查SOP|专利与侵权风险排查SOP]] — 五层递进排查框架（已整合到工作流）
+- [[wiki/sources/2026-10-29-五案公开诉状与被告商品线索|五案公开诉状与被告商品线索]] — Anagram、The Office、Harry Potter、Tina Turner、Angry Birds 的原始文书检索词与商品证据缺口
+- [[wiki/sources/2026-10-29-Keith十月新案与误配核验|Keith 十月新案与律所误配核验]] — 8 宗 Keith 出庭案、Avanti 具体作品线索、4 宗 Ference 误配纠错
+- [[wiki/sources/2026-11-01-Anagram官网产品目录与情人节气球线索|Anagram 官网产品目录与情人节气球线索]] — 官网确认 Coquette Bows 系列；与 2024 年 Keith 案版权号的对应仍待核
 
 ## 综合分析 (Synthesis)
 
@@ -100,6 +106,8 @@ updated: 2026-10-28
 - [[wiki/synthesis/版权排查经验教训-Keith蜜蜂案|版权排查经验教训 — Keith 蜜蜂图案 TRO 案]] — 189 审查中发现的版权排查盲区及工作流改进
 - [[wiki/synthesis/审查框架缺口审计与视觉证据方案|审查框架缺口审计与视觉证据方案]] — 补齐本地 Claude 无法看图、证据时效、普通法商标、交易链管辖与结论门禁
 - [[wiki/synthesis/Keith与TRO风险情报库建设方案|Keith 与 TRO 风险情报库建设方案]] — 权利、案件、执行状态、产品特征与证据的关联库设计及 MVP 路线
+- [[wiki/synthesis/TRO案件涉案作品与商品线索目录|TRO 案件涉案作品与商品线索目录]] — 覆盖现有 20 宗案件；区分已核实 TRO、仅起诉/申请、权利对象与商品证据缺口
+- [[wiki/synthesis/TRO情报库月度复核机制|TRO 情报库月度复核机制]] — 每月新案、权利、商品证据与命令状态复核的分层入库规则
 
 ## 📖 使用指南
 
